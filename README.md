@@ -9,9 +9,15 @@
 ./run_kafka_server.sh
 ```
 
+to stop server use:
+```sh
+../kafka_2.12-2.3.0/bin/kafka-server-stop.sh
+```
+
+
 ### create topic
 ```sh
-../kafka_2.12-2.3.0/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+../kafka_2.12-2.3.0/bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic testcdr
 ```
 
 ### check topics
@@ -24,22 +30,30 @@
 ../kafka_2.12-2.3.0/bin/kafka-topics.sh -zookeeper localhost:2181 -delete -topic test
 ```
 
+## Mirror Maker
+../kafka_2.12-2.3.0/bin/kafka-mirror-maker.sh --consumer.config ../azure-event-hubs-for-kafka/tutorials/mirror-maker/source-kafka.config  --num.streams 1 --producer.config ../azure-event-hubs-for-kafka/tutorials/mirror-maker/mirror-eventhub.config --whitelist=".*"
+
 
 ### run simulator producer
 
 help:
 ```sh
-usage: kafka_sym_producer.py [-h] [--max MAX] [--cycles CYCLES]
+usage: kafka_sym_producer.py [-h] [--topic TOPIC] [--max MAX]
+                             [--cycles CYCLES] [--debug]
 
-Run simulator of events to kafka topic.
+Process some integers.
 
 optional arguments:
   -h, --help       show this help message and exit
+  --topic TOPIC    kafka topic to write
   --max MAX        max number of generated CDRs in one cycle
   --cycles CYCLES  max cycles
+  --debug          debug mode only
 ```
 
 example run:
 ```sh
-python ./kafka_sym_producer.py --max 20 --cycles 10
+python ./kafka_sym_producer.py --topic testcdr --max 20 --cycles 10 --debug
 ```
+
+
