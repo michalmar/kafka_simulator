@@ -5,6 +5,12 @@
 ## USAGE: python ./kafka_sym_producer.py --topic testcdr --max 20 --cycles 10 --debug --brokers wn0-xtvkaf.phpziwd1d3iedoucfn5brcnrrc.ax.internal.cloudapp.net:9092,wn1-xtvkaf.phpziwd1d3iedoucfn5brcnrrc.ax.internal.cloudapp.net:9092
 ## USAGE: python ./kafka_sym_producer.py --topic test --max 5 --cycles 2 --brokers wn0-xtvkaf.phpziwd1d3iedoucfn5brcnrrc.ax.internal.cloudapp.net:9092,wn1-xtvkaf.phpziwd1d3iedoucfn5brcnrrc.ax.internal.cloudapp.net:9092
 
+
+
+## USAGE: KAFKABROKERS="wn0-xtx-ka.phpziwd1d3iedoucfn5brcnrrc.ax.internal.cloudapp.net:9092,wn1-xtx-ka.phpziwd1d3iedoucfn5brcnrrc.ax.internal.cloudapp.net:9092"
+## USAGE: python ./kafka_sym_producer.py --topic test --max 5 --cycles 2 --brokers $KAFKABROKERS
+
+
 import os
 from time import sleep
 from json import dumps
