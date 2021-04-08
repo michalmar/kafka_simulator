@@ -1,5 +1,8 @@
 # kafka_simulator
 
+Simple project to run simulation of sending messages to Kafka cluster.
+
+Kafka on Azure HDInsight -> go to [kafka-setup-hdinsight.md](./kafka-setup-hdinsight.md)
 
 ## steps to run kafka cluster
 
